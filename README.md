@@ -7,10 +7,10 @@
 
 #define DEBUG 1
 
-const String IN_NUMBER  = "+380665933013";  // -- The phone number from which the SMS will come
-const String OUT_NUMBER = "+380974505458";  // -- Phone number to which SMS will be sent
+const String IN_NUMBER  = "+XXXXXXXXXXXX";  // -- The phone number from which the SMS will come
+const String OUT_NUMBER = "+XXXXXXXXXXXX";  // -- Phone number to which SMS will be sent
 
-const String MESSAGE    = "I'm ON, you have 10 minutes.";
+const String MESSAGE    = "I'm ON.";
 
 #define LAUNCH_CODE "0000"                  // -- Code for switching to active mode (numbers or English letters)
 #define SLEEP_CODE  "1111"                  // -- Code for switching to sleep mode  (numbers or English letters)
