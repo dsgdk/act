@@ -13,15 +13,15 @@ class pSave {
   public:
     pSave();
     // -- Методи очікування
-    void waitMilliseconds(unsigned long milliseconds);
-    void waitSeconds     (unsigned long seconds);
-    void waitMinutes     (unsigned long minutes);
-    void waitHours       (unsigned long hours);
-    void waitDays        (unsigned long days);
-    void waitWeeks       (unsigned long weeks);
+    void sleepMilliseconds(unsigned long milliseconds);
+    void sleepSeconds     (unsigned long seconds);
+    void sleepMinutes     (unsigned long minutes);
+    void sleepHours       (unsigned long hours);
+    void sleepDays        (unsigned long days);
+    void sleepWeeks       (unsigned long weeks);
   
   private:
-    void wait            (unsigned long milliseconds);
+    void sleep            (unsigned long milliseconds);
 };
 
 #endif
