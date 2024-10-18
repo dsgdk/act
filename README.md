@@ -1,25 +1,48 @@
 # act
 
+The project utilizes the SIM800L module for receiving and processing SMS messages. The system is designed to work on an Arduino board, where the key objective is energy efficiency through extended sleep periods and automatic wake-up to perform tasks.
+
+This project ensures reliable control via mobile communication, which can be useful for remote or autonomous systems.
+
+## Key features
+
+- Sending and receiving SMS: The SIM800L sends messages after waking up and checks incoming SMS for relevant commands.
+- Network registration and signal strength check: The project includes checks for module registration in the mobile network and signal strength to ensure reliable connectivity.
+- Flexible time configuration: The project allows you to configure the waiting time in different units (seconds, minutes, hours, days). After the waiting period, the device goes to sleep if no command message has been received.
+- Energy efficiency: The Arduino sleep mechanism is used, with periodic wake-ups to minimize power consumption.
+
 ## Config example
 ```
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define DEBUG 1
+#define DEBUG            0                             // -- Режим дебагу (1 - увімкнено, 0 - вимкнено)
+#define RELE_PIN         4                             // -- Пін куди підключене реле
 
-const String IN_NUMBER  = "+XXXXXXXXXXXX";  // -- The phone number from which the SMS will come
-const String OUT_NUMBER = "+XXXXXXXXXXXX";  // -- Phone number to which SMS will be sent
+#define IN_NUMBER       "+XXXXXXXXXXXX"                // -- Номер телефону з якого прийде смс
+#define OUT_NUMBER      "+XXXXXXXXXXXX"                // -- Номер телефону на який відправлятимуться смс
 
-const String MESSAGE    = "I'm ON.";
+#define MESSAGE         "I'm ON."                      // -- Текст смс повідомлення
 
-#define LAUNCH_CODE "0000"                  // -- Code for switching to active mode (numbers or English letters)
-#define SLEEP_CODE  "1111"                  // -- Code for switching to sleep mode  (numbers or English letters)
-#define SECRET_CODE "2222"                  // -- Activation code                   (numbers or English letters)
+#define LAUNCH_CODE     "1111"                         // -- Код для переходу в активний режим (цифри, або англійські літери)
+#define SLEEP_CODE      "2222"                         // -- Код для переходу в сплячий режим  (цифри, або англійські літери)
+#define SECRET_CODE     "3333"                         // -- Код активації                     (цифри, або англійські літери)
 
-#define NUMB_OF_CONNECT 15                  // -- Number of network connection attempts
-#define DELAY_TIME       5                  // -- Time between connection attempts (in minutes)
+#define PIN_CODE_SIM    "0000"                         // -- Пін код для сім-карти
 
-#define PIN_CODE_SIM 0000                   // -- Pin code for SIM card
+#define NUMB_OF_CONNECT 15                             // -- Кількість спроб підключення до мережі
+#define DELAY_TIME       5                             // -- Час між спробами підключитися (в хвилинах)
+
+#define WAITING_TIME    30                             // -- Час очікування повідомлення для переходу в активний режим
+#define WAITING_UNITS   "sec"                          // -- Одиниці вимірювання (варіанти внизу файлу)
+
+/*
+ * milsec 
+ * sec    
+ * min    
+ * hours  
+ * days   
+ */
 
 #endif
 
